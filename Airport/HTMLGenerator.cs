@@ -16,12 +16,12 @@ namespace Airport
             string tableName;
             if (fromEU)
             {
-                tableLineColor = " style =\"background-color:99ccff;\"";
+                tableLineColor = " style ='background-color:rgb(153,204,255);'";
                 tableName = "Aircrafts from Europe";
             }
             else 
-            {
-                tableLineColor = " style=\"background-color:ffccff;\"";
+            {                
+                tableLineColor = " style='background-color:rgb(255,204,255);'";
                 tableName = "Aircrafts from Not Europe";
             }
             
@@ -48,9 +48,8 @@ namespace Airport
                                                 )
                                    );
             }
-            string htmlDocumnt = @"<!DOCTYPE html PUBLIC ""-//W3C//DTD XHTML 1.0 Transitional//EN"" ""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"">";
-            return htmlDocumnt + String.Format("<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"></head>"+
-                                 "<body><h1>{0}</h1><table border=\"1\">{1}</table></body></html>", tableName,builder.ToString() );
+            
+            return String.Format(@"<div><h1>{0}</h1><table border='1'>{1}</table></div>", tableName,builder.ToString() );
         }
 
     }
