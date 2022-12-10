@@ -10,57 +10,58 @@ using System.Threading.Tasks;
 namespace Airport.Repositories
 {
     internal class CountryRepository
-    {
-        public SqliteConnection myConnection;
+    {        
         public CountryRepository()
-        {
-            Database database = new Database();
-            myConnection = database.myConnection;
+        {   
         }
         public List<Country> Retrieve()
-        {
-            myConnection.Open();
-            SqliteCommand myCommand = new SqliteCommand("", myConnection);
-            myCommand.CommandText = "SELECT * FROM Country";
-            SqliteDataReader results = myCommand.ExecuteReader();
-            List<Country> Country = new List<Country>();
-            while (results.Read())
+        {   
+            List<Country> countryList = new List<Country>();
+            Database database = new Database();            
+            try
             {
-
-                bool eu = results["EUCountry"].ToString() == "True" ? true: false;                
-                Country.Add(new Country(results.GetInt32(0), results.GetString(1), results.GetString(2), eu));
-                
+                database.OpenConection();
+                SqliteConnection myConnection = database.myConnection;                
+                SqliteCommand myCommand = new SqliteCommand("", myConnection);
+                myCommand.CommandText = "SELECT * FROM Country";
+                SqliteDataReader readResults = myCommand.ExecuteReader();
+                while (readResults.Read())
+                {
+                    bool isEU = readResults["EUCountry"].ToString() == "True" ? true : false;
+                    countryList.Add(new Country(readResults.GetInt32(0), readResults.GetString(1), readResults.GetString(2), isEU));
+                }
+            }                
+            finally
+            {
+                database.CloseConection();
             }
-            myConnection.Close();
-            return Country;
+            return countryList;
         }
 
         public Country Retrieve(int id)
         {
+            Country country = null;
+            Database database = new Database();
             try
             {
-                myConnection.Open();
+                database.OpenConection();
+                SqliteConnection myConnection = database.myConnection;
                 SqliteCommand myCommand = new SqliteCommand("", myConnection);
                 myCommand.CommandText = $"SELECT * FROM Country WHERE Id={id}";
-
-                using (SqliteDataReader results = myCommand.ExecuteReader())
+                using (SqliteDataReader readResults = myCommand.ExecuteReader())
                 {
-                    if (results.Read())
+                    if (readResults.Read())
                     {
-                        bool eu = results["EUCountry"].ToString() == "True" ? true : false;
-                        Country Country = new Country(results.GetInt32(0), results.GetString(1), results.GetString(2), eu);
-                        myConnection.Close();
-                        return Country;
+                        bool isEU = readResults["EUCountry"].ToString() == "True" ? true : false;
+                        country = new Country(readResults.GetInt32(0), readResults.GetString(1), readResults.GetString(2), isEU);
                     }
-                }
-                myConnection.Close();
-                return null;
-            }
-            catch
+                }                
+            }            
+            finally
             {
-                myConnection.Close();
-                return null;
+                database.CloseConection();                
             }
+            return country;
         }
     }
 }

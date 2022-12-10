@@ -11,52 +11,55 @@ namespace Airport.Repositories
 {
     public class CompanyRepository
     {
-        public SqliteConnection myConnection;
         public CompanyRepository()
-        {
-            Database database = new Database();
-            myConnection = database.myConnection;
+        {         
         }
         public List<Company> Retrieve()
         {
-            myConnection.Open();
-            SqliteCommand myCommand = new SqliteCommand("", myConnection);
-            myCommand.CommandText = "SELECT * FROM Company";
-            SqliteDataReader results = myCommand.ExecuteReader();
-            List<Company> Company = new List<Company>();
-            while (results.Read())
+            List<Company> companyList = new List<Company>();
+            Database database = new Database();
+            try
             {
-                Company.Add(new Company(results.GetInt32(0), results.GetString(1), results.GetInt32(2) ));
+                database.OpenConection();
+                SqliteConnection myConnection = database.myConnection;
+                SqliteCommand myCommand = new SqliteCommand("", myConnection);
+                myCommand.CommandText = "SELECT * FROM Company";
+                SqliteDataReader readResults = myCommand.ExecuteReader();            
+                while (readResults.Read())
+                {
+                    companyList.Add(new Company(readResults.GetInt32(0), readResults.GetString(1), readResults.GetInt32(2) ));
+                }
             }
-            myConnection.Close();
-            return Company;
+            finally
+            {
+                database.CloseConection();
+            }
+            return companyList;
         }
 
         public Company Retrieve(int id)
         {
+            Company company = null;
+            Database database = new Database();
             try
             {
-                myConnection.Open();
+                database.OpenConection();
+                SqliteConnection myConnection = database.myConnection;
                 SqliteCommand myCommand = new SqliteCommand("", myConnection);
                 myCommand.CommandText = $"SELECT * FROM Company WHERE Id={id}";
-
-                using (SqliteDataReader results = myCommand.ExecuteReader())
+                using (SqliteDataReader readResults = myCommand.ExecuteReader())
                 {
-                    if (results.Read())
+                    if (readResults.Read())
                     {
-                        Company Company = new Company(results.GetInt32(0), results.GetString(1), results.GetInt32(2));
-                        myConnection.Close();
-                        return Company;
+                        company = new Company(readResults.GetInt32(0), readResults.GetString(1), readResults.GetInt32(2));                                             
                     }
                 }
-                myConnection.Close();
-                return null;
             }
-            catch
+            finally
             {
-                myConnection.Close();
-                return null;
+                database.CloseConection();                
             }
+            return company;
         }
     }
 }

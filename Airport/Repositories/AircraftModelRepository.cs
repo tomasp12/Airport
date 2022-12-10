@@ -12,54 +12,56 @@ using System.Threading.Tasks;
 namespace Airport.Repositories
 {
     public class AircraftModelRepository
-    {
-        public SqliteConnection myConnection;
+    {        
         public AircraftModelRepository() 
         {
-            Database database = new Database();
-            myConnection = database.myConnection;
         }
         public List<AircraftModel> Retrieve()
         {
-            myConnection.Open();
-            SqliteCommand myCommand = new SqliteCommand("", myConnection);
-            myCommand.CommandText = "SELECT * FROM AircraftModel";
-            SqliteDataReader results = myCommand.ExecuteReader();
-            List<AircraftModel> aircraftModels = new List<AircraftModel>();
-            while (results.Read())
+            List<AircraftModel> aircraftModelsList = new List<AircraftModel>();
+            Database database = new Database();
+            try
             {
-                aircraftModels.Add(new AircraftModel(results.GetInt16(0), results.GetString(1), results.GetString(2)));
+                database.OpenConection();
+                SqliteConnection myConnection = database.myConnection;
+                SqliteCommand myCommand = new SqliteCommand("", myConnection);
+                myCommand.CommandText = "SELECT * FROM AircraftModel";
+                SqliteDataReader readResults = myCommand.ExecuteReader();                
+                while (readResults.Read())
+                {
+                    aircraftModelsList.Add(new AircraftModel(readResults.GetInt16(0), readResults.GetString(1), readResults.GetString(2)));
+                }
             }
-            myConnection.Close();
-            return aircraftModels;
+            finally
+            {
+                database.CloseConection();
+            }
+            return aircraftModelsList;
         }
 
         public AircraftModel Retrieve(int id)
         {
+            AircraftModel aircraftModel = null;
+            Database database = new Database();
             try
             {
-                myConnection.Open();
+                database.OpenConection();
+                SqliteConnection myConnection = database.myConnection;
                 SqliteCommand myCommand = new SqliteCommand("", myConnection);
                 myCommand.CommandText = $"SELECT * FROM AircraftModel WHERE Id={id}";
-
-                using (SqliteDataReader results = myCommand.ExecuteReader())
+                using (SqliteDataReader readResults = myCommand.ExecuteReader())
                 {
-                    if (results.Read())
+                    if (readResults.Read())
                     {
-                        AircraftModel aircraftModels = new AircraftModel(results.GetInt32(0), results.GetString(1), results.GetString(2));
-                        myConnection.Close();
-                        return aircraftModels;
+                        aircraftModel = new AircraftModel(readResults.GetInt32(0), readResults.GetString(1), readResults.GetString(2));
                     }
                 }
-                myConnection.Close();
-                return null;
             }
-            catch 
+            finally
             {
-                myConnection.Close();
-                return null;
+                database.CloseConection();            
             }
+            return aircraftModel;
         }
-
     }
 }
