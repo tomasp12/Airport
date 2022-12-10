@@ -18,7 +18,7 @@ namespace Airport
                 EnableSsl = true
             };
             client.Send("airplane@gmail.com", "tomyte@gmail.com", "Incoming airplane report", emailBody);
-                
+            
         }
     }
 }
