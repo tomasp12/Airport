@@ -2881,7 +2881,7 @@
 5676,Global Aviation Resources (GAR-MRO Services INC), 3
 5698,UAB Baltijos Brasta, 1
 5736,TELEDYNE CONTROLS, 35
-5737,UAB “Grand Cru Airlines”, 1
+5737,UAB Grand Cru Airlines, 1
 5739,Northrop Grumman LITEF GmbH, 5
 5745,Mil-Aero Solutions INC, 3
 5747,AVIATION INSTRUMENTS REPAIR SPECIALISTS INC, 3
@@ -3044,7 +3044,7 @@
 5973,China Cargo Airlines Co. Ltd, 110
 6022,TECHNOTEK Corporation LLP, 35
 6024,AVIATION POWER SUPPORT  LP, 3
-6027,VsI „D&DM“, 1
+6027,VsI D&DM, 1
 6048,Emerald jet, 199
 5912,Tek Know Baltic, 1
 5950,SPM Components & Support INC, 3
@@ -3272,7 +3272,7 @@
 6367,AVIATION REPAIR SOLUTIONS, 3
 6464,AERO-MACH LABS INC, 3
 6350,OGMA S.A, 75
-6385,UAB “Perelita”, 1
+6385,UAB Perelita, 1
 6391,323 Global Sourcing, 3
 6392,Aero Express FZE, 7
 6406,Air & Ground Aviation Ltd, 199
@@ -3449,7 +3449,7 @@
 6619,Airworthy Parts  Intl, 3
 6629,Air Nostrum, 129
 6634,THE FUEL CELL., 3
-6669,UAB „Alternative specialists“, 1
+6669,UAB Alternative specialists, 1
 6716,Maven Engineering, 3
 6722,ECOLIFT CORPORATION, 199
 6727,EASTERN SKYJETS, 7
@@ -3469,7 +3469,7 @@
 6721,HIGHPOINT AVIATION, 3
 6733,EURODUNA CONSULTING GMBH, 199
 6736,GIOCOM LLC, 3
-6744,UABParadis, 1
+6744,UAB Paradis, 1
 6745,Virenda UAB , 1
 6550,BLUE SKY AVIATION SUPPORT NETWORK, 199
 6551,CAPSED, 3
@@ -3515,7 +3515,7 @@
 6806,Jet Airways( India ) ltd, 199
 6891,AERO PRODUCTS INDIA, 200
 6892,VTS INC, 3
-6900,UAB „AviaAM B05“, 1
+6900,UAB AviaAM B05, 1
 6910,AAR CORP dba AAR ROTORCRAFT SERVICES, 3
 6947,PHILIPS AVIATION, 3
 6928,NASS AVIASPARES, 7
@@ -3632,7 +3632,7 @@
 7068,Airway Aerospace, 3
 7080,PRIORITY AIRPARTS SUPPORT LLC, 3
 7099,Interior Marketing Inc., 3
-7106,UAB “Verslo skrydziai”, 1
+7106,UAB Verslo skrydziai, 1
 7007,Salber&Luca International Ltd, 110
 7014,AerSale Aviation Limited, 199
 7036,IBC Airways, 199
@@ -4969,7 +4969,7 @@
 10361,LC ELECTRONICS, 199
 10362,Quikjet, 199
 10379,Core Aviation, 199
-10387,UAB “Aviation Projects Management”, 1
+10387,UAB Aviation Projects Management, 1
 9591,Latchways PLC, 35
 9592,FLEXIM Flexible Industriemesstechnik GmbH, 5
 9593,DESHONS HYDRAULIQUE SAS, 136
@@ -5022,7 +5022,7 @@
 10371,AirParts Distributor S.A. de C.V., 199
 10400,BENNETT SAFETYWEAR LTD, 199
 10402,Gao Jun CO. LTD., 199
-10464,OILTEH  „VA Motors”, 199
+10464,OILTEH  VA Motors, 199
 10469,AEROSIGNAL LLC, 199
 10471,AC-POL, 199
 10473,AVIATION INCORPORATED LLC, 199
@@ -5162,7 +5162,7 @@
 10046,EOS-AV INTERNATIONAL CORP, 3
 10129,Navasard Khachatryan Private Entreprenuer, 12
 10139,JDL Industries Inc, 3
-10191,LLC “Service Centre “Navigation”, 37
+10191,LLC Service Centre Navigation, 37
 10250,Arezo Aviation Services, 199
 10185,KAL NELSON AVIATON, 199
 10186,AMANATH GLOBAL, 199
@@ -6467,7 +6467,7 @@
 13257,RAM BALTIC Sp. z o.o., 199
 12390,AEROTEC SERVICES, 199
 12391,CTA Aerospace LLC, 199
-12501,CJSC “UTG”, 70
+12501,CJSC UTG, 70
 12575,Vartan Maintenance GmbH, 5
 12686,PT. TUNGGAL RAYA MANDIRI, 199
 12834,Shanghai Pratt&Whitney Aircraft Engine Maintenance, 199
@@ -7470,7 +7470,7 @@
 14685,Swift Air Logistics, 199
 14690,PAO GAZPROM, 199
 14715,DENTEC AEROSPACE PTY LTD, 199
-14806,UAB “Eurochemicals”, 199
+14806,UAB Eurochemicals, 199
 14191,Gomair, 199
 14391,Kaiserair, 199
 14440,Airstork S.R.L, 169
@@ -7918,7 +7918,7 @@
 15596,Castleberry Instruments & Avionics, 199
 15640,Henri Hazougi (Business Consultancy), 199
 15774,AMS Airlines LLC, 139
-15780,O.ZURAVLIOVO IMON? “AVSISTA”, 1
+15780,O.ZURAVLIOVO IMON? AVSISTA, 1
 15783,Raptor Supplies Ltd, 35
 15784,Aviahelp Ltd, 70
 15812,Moog Asset Solutions, 199
@@ -8023,7 +8023,7 @@
 15736,UAB GLOBAL AIRWAYS, 1
 16187,navAero Avionics AB, 65
 16346,LMO AERO, 199
-15471,UAB „ALFETA“, 199
+15471,UAB ALFETA, 199
 15472,ALFETA UAB, 199
 15475,Air Cargo Equipment Inc., 199
 15628,Vasteras Stad, 65

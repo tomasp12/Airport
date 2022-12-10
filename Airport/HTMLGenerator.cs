@@ -9,7 +9,7 @@ namespace Airport
 {
     public class HTMLGenerator
     {   
-        public string FormatHTML(List<ReportField> reportRows, bool fromEU)
+        public string FormatHTML(List<Report> reportRows, bool fromEU)
         {
             string tableRow = "<tr{6}><td>{0}</td><td>{1}</td><td>{2}</td><td>{3}</td><td>{4}</td><td>{5}</td></tr>";
             string tableLineColor;
@@ -36,7 +36,7 @@ namespace Airport
                                                         ""
                                                )
                                 );
-            foreach (ReportField reportRow in reportRows)
+            foreach (Report reportRow in reportRows)
             {
                 builder.AppendLine(String.Format(tableRow, reportRow.AircraftTailNumber,
                                                            reportRow.ModelNumber,

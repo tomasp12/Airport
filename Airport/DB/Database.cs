@@ -16,11 +16,11 @@ namespace Airport.DB
     public class Database
     {
         public SqliteConnection myConnection;
-        private string conectionString = "Data Source=airport.db";
+        private string _conectionString = "Data Source=airport.db";
         //private string conectionString = "Data Source=InMemorySample;Mode=Memory;Cache=Shared";
         public Database()
         {
-            myConnection = new SqliteConnection(conectionString);                   
+            myConnection = new SqliteConnection(_conectionString);                   
         }
         public void OpenConection () 
         {

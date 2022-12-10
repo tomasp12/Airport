@@ -22,10 +22,10 @@ namespace Airport
             countryRepository = new CountryRepository();
         }
 
-        public List<ReportField> GenerateReportAircraftInEurope()
+        public List<Report> GenerateReportForAircraft(bool fromEU)
         {
             List<Aircraft> aircraftList =  aircraftRepository.Retrieve();
-            List<ReportField> reportFieldList = new List<ReportField>();
+            List<Report> reportFieldList = new List<Report>();
 
             foreach (var aircraft in aircraftList)
             {
@@ -34,10 +34,10 @@ namespace Airport
                 Country country = countryRepository.Retrieve(company.CountryId);
 
                 
-                if (country.EUCountry == true)
+                if (country.EUCountry == fromEU)
                 {
                     AircraftModel aircraftModel = aircraftModelRepository.Retrieve(aircraft.ModelId);
-                    ReportField reportField = new ReportField();
+                    Report reportField = new Report();
                     reportField.AircraftTailNumber = aircraft.SerialNumber;
                     reportField.ModelNumber = aircraftModel.Number;
                     reportField.ModelDescription = aircraftModel.Description;
@@ -50,35 +50,6 @@ namespace Airport
             }
 
             return reportFieldList;
-        }
-        public List<ReportField> GenerateReportAircraftNotInEurope()
-        {
-            List<Aircraft> aircraftList = aircraftRepository.Retrieve();
-            List<ReportField> reportFieldList = new List<ReportField>();
-
-            foreach (var aircraft in aircraftList)
-            {
-
-                Company company = companyRepository.Retrieve(aircraft.CompanyId);
-                Country country = countryRepository.Retrieve(company.CountryId);
-
-
-                if (country.EUCountry == false)
-                {
-                    AircraftModel aircraftModel = aircraftModelRepository.Retrieve(aircraft.ModelId);
-                    ReportField reportField = new ReportField();
-                    reportField.AircraftTailNumber = aircraft.SerialNumber;
-                    reportField.ModelNumber = aircraftModel.Number;
-                    reportField.ModelDescription = aircraftModel.Description;
-                    reportField.OwnerCompanyName = company.Name;
-                    reportField.CompanyCountryCode = country.Code;
-                    reportField.CompanyCountryName = country.Name;
-                    reportFieldList.Add(reportField);
-
-                }
-            }
-
-            return reportFieldList;
-        }
+        }        
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Airport.Models
 {
-    public class ReportField
+    public class Report
     {
         public string AircraftTailNumber { get; set; }
         public string ModelNumber { get; set; }
